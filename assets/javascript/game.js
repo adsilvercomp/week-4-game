@@ -2,33 +2,10 @@ var wins=0;
 var losses=0;
 var compNumber;
 var crystalNumbers;
-var userNumber;
-counter=0;
+var counter=0;
 
 
-			
-//this function generates the random crystal values
-
-			var maxCrystal=12;
-			var minCrystal=1;
-			var crystalNumber1 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber2 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber3 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber4 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber5 = crystalNumberFromRange(minCrystal, maxCrystal);
-
-			function crystalNumberFromRange(min,max){
-				return Math.floor(Math.random()*(max-min+1)+min);
-			}
-
-
-
-		console.log(compNumber);
-		console.log(crystalNumber1);
-		console.log(crystalNumber2);
-		console.log(crystalNumber3);
-		console.log(crystalNumber4);
-		console.log(crystalNumber5);
+		
 
 
 
@@ -45,14 +22,41 @@ function compGenerate(){
 			var compNumber= compNumberFromRange(mincN,maxcN);
 			function compNumberFromRange(min,max){
 				return Math.floor(Math.random()*(max-min+1)+min);
+
+				
 				
 			}
 
-
+				console.log(compNumber);
 			
 			
 
 }
+
+
+
+//this function generates the random crystal values
+
+			var maxCrystal=12;
+			var minCrystal=1;
+			var crystalNumber1 = crystalNumberFromRange(minCrystal, maxCrystal);
+			var crystalNumber2 = crystalNumberFromRange(minCrystal, maxCrystal);
+			var crystalNumber3 = crystalNumberFromRange(minCrystal, maxCrystal);
+			var crystalNumber4 = crystalNumberFromRange(minCrystal, maxCrystal);
+			var crystalNumber5 = crystalNumberFromRange(minCrystal, maxCrystal);
+
+			function crystalNumberFromRange(min,max){
+				return Math.floor(Math.random()*(max-min+1)+min);
+			}
+
+
+
+	
+		console.log(crystalNumber1);
+		console.log(crystalNumber2);
+		console.log(crystalNumber3);
+		console.log(crystalNumber4);
+		console.log(crystalNumber5);
 
 			
 
@@ -96,12 +100,37 @@ function userGenerate(){
 }
 
 
+ //this function updates the user interface by connecting the javascript with the html.
+    function gamePlay() {
+
+
+        //this is the user interface.
+        var html = 
+            "<p> click on the crystals and try to match the computer's number</p>" +
+            "<p>wins:" + wins + "</p>" +
+            "<p>losses:" + losses + "</p>" +
+            "<p>Computer Number" + compNumber+ "</p>"+
+            "<p>User Number" + counter + "</p>";
+
+        console.log(html);
+
+        document.getElementById('scoreBoard').innerHTML = html;
+
+
+
+
+
+    }
+
+
+
 
 
 
 window.onload= function(){
-	compGenerate()
+	compGenerate();
 	userGenerate();
+	gamePlay();
 }
 
 
