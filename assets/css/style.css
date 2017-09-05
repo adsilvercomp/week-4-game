@@ -1,0 +1,32 @@
+
+*{
+	margin:0px;
+	padding:0px;
+}
+
+h1{
+	font-size: 40px;
+	text-align:center;
+}
+
+
+#container{	
+	max-width:1000px;
+	height:1000px;
+	margin:20px auto;
+	display:-webkit-box;
+	-webkit-box-orient:vertical;
+	-webkit-box-flex:1;	
+	background-size:1000px 1000px;
+	
+
+}
+
+img { height:200px;
+	width:150px;
+	padding:20px;
+}
+
+.crystal{
+	display:inline-block;
+}
