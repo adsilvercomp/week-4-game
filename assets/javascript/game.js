@@ -1,9 +1,8 @@
 var wins=0;
 var losses=0;
 var compNumber;
-var crystalNumbers;
+var crystalNumbers=0;
 var counter=0;
-
 
 		
 
@@ -19,17 +18,16 @@ function compGenerate(){
 			var maxcN=120;
 			var mincN=19;
 			
-			var compNumber= compNumberFromRange(mincN,maxcN);
+			compNumber= compNumberFromRange(mincN,maxcN);
 			function compNumberFromRange(min,max){
 				return Math.floor(Math.random()*(max-min+1)+min);
 
 				
-				
 			}
 
 				console.log(compNumber);
-			
-			
+				gamePlay();
+						
 
 }
 
@@ -71,52 +69,96 @@ function userGenerate(){
 	$( "#crystal1" ).on("click", function() {
 		counter+=crystalNumber1;
   alert( "The user score has increased to " + counter);
+  gamePlay();
 });
 
 	$( "#crystal2" ).on("click", function() {
 		counter+=crystalNumber2;
   alert( "The user score has increased to " + counter );
+  gamePlay();
 });
 
 
 	$( "#crystal3" ).on("click", function() {
 		counter+= crystalNumber3;
   alert( "The user score has increased to " + counter );
+  gamePlay();
 });
 
 	$( "#crystal4" ).on("click", function() {
 		counter+= crystalNumber4;
   alert( "The user score has increased to " + counter );
+  gamePlay();
 });
 
 	$( "#crystal5" ).on("click", function() {
 		counter+= crystalNumber5;
   alert( "The user score has increased to " + counter );
+  gamePlay();
 });
-
-
 
 
 }
 
 
+
+
+	
+
+		
+
+
+
  //this function updates the user interface by connecting the javascript with the html.
     function gamePlay() {
 
+    	if(counter===compNumber){
+			wins=+1;
+			counter=0;
+			compGenerate();
+			gamePlay();
+			console.log("winner");
+		}
 
-        //this is the user interface.
+		if(counter>compNumber){
+			losses=+1;
+			counter=0;
+			compGenerate();
+			gamePlay();
+		}
+
+
+
+        //this is the scoreBoard interface.
         var html = 
-            "<p> click on the crystals and try to match the computer's number</p>" +
-            "<p>wins:" + wins + "</p>" +
-            "<p>losses:" + losses + "</p>" +
-            "<p>Computer Number" + compNumber+ "</p>"+
-            "<p>User Number" + counter + "</p>";
-
-        console.log(html);
+            "<p> click on the crystals and try to match the computer's number </p>" +
+            "<p>wins: " + wins + "</p>" +
+            "<p>losses: " + losses + "</p>";
+    
 
         document.getElementById('scoreBoard').innerHTML = html;
+        console.log(html);
 
 
+
+       //this is the number the computer generates
+        var html2 = 
+            
+            "<p>Computer's Number: " + compNumber + "</p>";
+
+
+        document.getElementById('CompNumber').innerHTML = html2;
+        console.log(html2);
+
+
+        //this is the number the computer generates
+        var html3 = 
+
+            "<p>User's number: " + counter + "</p>";
+
+
+        document.getElementById('playerNumber').innerHTML = html3;
+        console.log(html3);
 
 
 
@@ -130,7 +172,6 @@ function userGenerate(){
 window.onload= function(){
 	compGenerate();
 	userGenerate();
-	gamePlay();
 }
 
 

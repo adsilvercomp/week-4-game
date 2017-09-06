@@ -30,3 +30,24 @@ img { height:200px;
 .crystal{
 	display:inline-block;
 }
+
+
+#scoreBoard {
+	text-align:center;
+	margin-top:20px;
+	line-height: 30px;
+
+}
+		
+
+#CompNumber	{
+	text-align:center;
+	margin-top:20px;
+		}
+
+		
+#playerNumber{
+	text-align:center;
+	margin-top:20px;
+	margin-bottom:20px;
+		}
