@@ -75,32 +75,27 @@ function userGenerate(){
 
 	$( "#crystal1" ).on("click", function() {
 		counter+=crystalNumber1;
-  alert( "The user score has increased to " + counter);
   gamePlay();
 });
 
 	$( "#crystal2" ).on("click", function() {
 		counter+=crystalNumber2;
-  alert( "The user score has increased to " + counter );
   gamePlay();
 });
 
 
 	$( "#crystal3" ).on("click", function() {
 		counter+= crystalNumber3;
-  alert( "The user score has increased to " + counter );
   gamePlay();
 });
 
 	$( "#crystal4" ).on("click", function() {
 		counter+= crystalNumber4;
-  alert( "The user score has increased to " + counter );
   gamePlay();
 });
 
 	$( "#crystal5" ).on("click", function() {
 		counter+= crystalNumber5;
-  alert( "The user score has increased to " + counter );
   gamePlay();
 });
 
@@ -145,6 +140,7 @@ function userGenerate(){
 
         //this is the scoreBoard interface.
         var html = 
+        	"<h1> Crystal Collector Game <h1>"+
             "<p> click on the crystals and try to match the computer's number </p>" +
             "<p>wins: " + wins + "</p>" +
             "<p>losses: " + losses + "</p>"+
@@ -156,7 +152,7 @@ function userGenerate(){
         console.log(html);
 
 
-
+        //if the user gets ten losses they lose the game.
         if (losses === 10) {
 
 		            GameOver = "<h1>Game Over</h1>";
@@ -164,7 +160,7 @@ function userGenerate(){
 		            document.getElementById('scoreBoard').innerHTML = GameOver;
 		        }
 
-
+		//if the loser gets 10 wins, they win the game.
 		if (wins === 10) {
 
 		 			Congrats = "<h1>Congratulations, you are a winner!</h1>";

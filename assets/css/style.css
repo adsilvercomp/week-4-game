@@ -2,16 +2,31 @@
 *{
 	margin:0px;
 	padding:0px;
-}
+	}
+
+
 
 h1{
 	font-size: 40px;
 	text-align:center;
-}
+	font-weight: bold;
+	}
+
+
+
 
 h3{
 	font-size:25px;
 	line-height: 50px;
+	}	
+
+
+p{font-size: 20px;
+
+	}
+
+body{
+	background-image: url("../images/cave.jpg");
 }
 
 #container{	
@@ -39,19 +54,9 @@ img { height:200px;
 #scoreBoard {
 	text-align:center;
 	margin-top:20px;
-	line-height: 30px;
-
+	line-height: 50px;
+	color:white;
+	margin-bottom:30px;
 }
 		
 
-#CompNumber	{
-	text-align:center;
-	margin-top:20px;
-		}
-
-		
-#playerNumber{
-	text-align:center;
-	margin-top:20px;
-	margin-bottom:20px;
-		}
