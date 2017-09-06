@@ -3,8 +3,15 @@ var losses=0;
 var compNumber;
 var crystalNumbers=0;
 var counter=0;
-
-		
+var maxCrystal;
+var minCrystal;
+var crystalNumber1;
+var crystalNumber2;
+var crystalNumber3;
+var crystalNumber4;
+var crystalNumber5;
+var Congrats;
+var GameOver;		
 
 
 
@@ -34,14 +41,14 @@ function compGenerate(){
 
 
 //this function generates the random crystal values
-
-			var maxCrystal=12;
-			var minCrystal=1;
-			var crystalNumber1 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber2 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber3 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber4 = crystalNumberFromRange(minCrystal, maxCrystal);
-			var crystalNumber5 = crystalNumberFromRange(minCrystal, maxCrystal);
+function crystalGenerate(){
+			 maxCrystal=12;
+			 minCrystal=1;
+			 crystalNumber1 = crystalNumberFromRange(minCrystal, maxCrystal);
+			 crystalNumber2 = crystalNumberFromRange(minCrystal, maxCrystal);
+			 crystalNumber3 = crystalNumberFromRange(minCrystal, maxCrystal);
+			 crystalNumber4 = crystalNumberFromRange(minCrystal, maxCrystal);
+			 crystalNumber5 = crystalNumberFromRange(minCrystal, maxCrystal);
 
 			function crystalNumberFromRange(min,max){
 				return Math.floor(Math.random()*(max-min+1)+min);
@@ -55,7 +62,7 @@ function compGenerate(){
 		console.log(crystalNumber3);
 		console.log(crystalNumber4);
 		console.log(crystalNumber5);
-
+}
 			
 
 
@@ -111,29 +118,38 @@ function userGenerate(){
 
  //this function updates the user interface by connecting the javascript with the html.
     function gamePlay() {
-
+    	
+    	//if the counter is equal to the computer's number, the user's wins increase by 1, the computer chooses a new random number
+    	//and the crystals are assigned new random numbers.
     	if(counter===compNumber){
-			wins=+1;
+			wins++;
 			counter=0;
 			compGenerate();
+			crystalGenerate();
 			gamePlay();
-			console.log("winner");
+
 		}
 
+		//if the counter is equal to the computer's number, the user's losses increase by 1, the computer chooses a new random number
+    	//and the crystals are assigned new random numbers.
 		if(counter>compNumber){
-			losses=+1;
+			losses++;
 			counter=0;
 			compGenerate();
+			crystalGenerate();
 			gamePlay();
 		}
 
+		 
 
 
         //this is the scoreBoard interface.
         var html = 
             "<p> click on the crystals and try to match the computer's number </p>" +
             "<p>wins: " + wins + "</p>" +
-            "<p>losses: " + losses + "</p>";
+            "<p>losses: " + losses + "</p>"+
+            "<h3>Computer's Number: " + compNumber + "</h3>"+
+            "<h3>User's number: " + counter + "</h3>";
     
 
         document.getElementById('scoreBoard').innerHTML = html;
@@ -141,25 +157,20 @@ function userGenerate(){
 
 
 
-       //this is the number the computer generates
-        var html2 = 
-            
-            "<p>Computer's Number: " + compNumber + "</p>";
+        if (losses === 10) {
+
+		            GameOver = "<h1>Game Over</h1>";
+
+		            document.getElementById('scoreBoard').innerHTML = GameOver;
+		        }
 
 
-        document.getElementById('CompNumber').innerHTML = html2;
-        console.log(html2);
+		if (wins === 10) {
 
+		 			Congrats = "<h1>Congratulations, you are a winner!</h1>";
 
-        //this is the number the computer generates
-        var html3 = 
-
-            "<p>User's number: " + counter + "</p>";
-
-
-        document.getElementById('playerNumber').innerHTML = html3;
-        console.log(html3);
-
+		            document.getElementById('scoreBoard').innerHTML = Congrats;
+		        } 
 
 
     }
@@ -171,6 +182,7 @@ function userGenerate(){
 
 window.onload= function(){
 	compGenerate();
+	crystalGenerate();
 	userGenerate();
 }
 
