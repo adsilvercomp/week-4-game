@@ -1,3 +1,4 @@
+//global variables
 var wins=0;
 var losses=0;
 var compNumber;
@@ -65,12 +66,10 @@ function crystalGenerate(){
 			
 
 
-// this function controls the userNnumber
+// this function controls the icremented userNumber.
 function userGenerate(){
-	// user clicks on crystal and their number increases by the crystals value each time it is clicked.
 	
-	//var increment = 
-    //if the counter doesn't update, the clicks won't add up
+	// user clicks on crystal and their number increases by the crystals value each time it is clicked.
 
 	$( "#crystal1" ).on("click", function() {
 		counter+=crystalNumber1;
@@ -110,7 +109,8 @@ function userGenerate(){
 
 
 
- //this function updates the user interface by connecting the javascript with the html.
+ //this function updates the user interface by connecting the javascript with the html. 
+ //It also sets the rules for wins and losses.
     function gamePlay() {
     	
     	//if the counter is equal to the computer's number, the user's wins increase by 1, the computer chooses a new random number
@@ -174,7 +174,7 @@ function userGenerate(){
 
 
 
-
+//this function calls all of the functions except for gamePlay.
 window.onload= function(){
 	compGenerate();
 	crystalGenerate();
