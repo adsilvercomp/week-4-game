@@ -15,8 +15,7 @@ var GameOver;
 
 
 
-// this section causes computer to generate random number between 19 and 120  
-// and asigns crystals a random value between 1 and 12.
+// this function causes computer to generate random number between 19 and 120.  
 
 function compGenerate(){
 	
