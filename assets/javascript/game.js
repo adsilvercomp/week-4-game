@@ -176,8 +176,8 @@ function gamePlay() {
 
 
 //this function calls all of the functions except for gamePlay.
-window.onload = function() { //****use jquery document.ready
+$( document ).ready(function() { //****use jquery document.ready
     compGenerate();
     crystalGenerate();
     userGenerate();
-}
+});
